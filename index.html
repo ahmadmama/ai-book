@@ -67,6 +67,11 @@ section.ch{padding-top:26px;scroll-margin-top:120px}
 .tool i{font-style:normal;font-size:12px;color:var(--accent-ink);direction:ltr;display:block;text-align:right;overflow-wrap:anywhere}
 .refs{direction:ltr;text-align:left;font-size:13px;line-height:1.6;padding-left:18px;color:var(--muted);overflow-wrap:anywhere}
 .author{background:var(--navy);color:#fff;border-radius:14px;padding:18px 20px;margin-top:26px}
+.author{display:flex;gap:18px;align-items:flex-end;padding-bottom:0;overflow:hidden}
+.aimg{width:180px;flex:none;align-self:flex-end;margin-bottom:0}
+.atx{min-width:0;padding-bottom:18px}
+.arole{color:#d9dfe6;margin:2px 0 10px;font-size:14px}
+@media (max-width:640px){.author{flex-direction:column-reverse;align-items:stretch}.aimg{width:200px;align-self:center}}
 .author a{color:var(--yellow);font-weight:700;overflow-wrap:anywhere}
 .empty{display:none;padding:20px;text-align:center;color:var(--muted)}
 details.ans{margin-top:8px;border-top:1px dashed var(--line);padding-top:6px}
@@ -143,7 +148,7 @@ DATA.library.forEach(g=>{h+=`<div class="lab">${esc(g.g)}</div>`+g.items.map(car
 h+=`</section><section class="ch" id="tools"><div class="chh"><div class="num">ج</div><div><h2>ڕێبەری ئامرازەکان</h2><p>دەست لە هەر ئامرازێک بدە بۆ کردنەوەی ماڵپەڕەکەی</p></div></div>`;
 DATA.tools.forEach(g=>{h+=`<div class="lab">${esc(g.g)}</div><div class="tools">`+g.items.map(t=>`<a class="tool" href="https://${esc(t[1])}" target="_blank" rel="noopener"><b>${esc(t[0])}</b><small>${esc(t[2])}</small><i>${esc(t[1])}</i></a>`).join('')+`</div>`});
 h+=`</section><section class="ch" id="sources"><div class="chh"><div class="num">٭</div><div><h2>سەرچاوەکان</h2><p>سەرچاوەکانی کتێبەکە بە ڕیزی ئەلفوبێ</p></div></div><ol class="refs">${DATA.refs.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section>`;
-h+=`<section class="ch" id="author"><div class="author"><div class="lab" style="color:var(--yellow);margin-top:0">دەربارەی نووسەر</div><p style="margin:0;font-size:20px;font-weight:900">ئەحمەد حەسەن مامە</p><p style="margin:6px 0 0">بۆ پەیوەندی، پێشنیار یان ڕاپۆرتکردنی هەڵە:</p><p style="margin:4px 0 0"><a href="https://profile-7324a.web.app/" target="_blank" rel="noopener" dir="ltr">profile-7324a.web.app</a></p></div></section>`;
+h+=`<section class="ch" id="author"><div class="author"><img src="author.webp" alt="ئەحمەد حەسەن مامە" class="aimg"><div class="atx"><div class="lab" style="color:var(--yellow);margin-top:0">دەربارەی نووسەر</div><p style="margin:0;font-size:24px;font-weight:900;line-height:1.4">ئەحمەد حەسەن مامە</p><p class="arole">خوێندکاری تەکنەلۆژیای زانیاری · سلێمانی</p><p>خەڵکی شاری سلێمانییە و لە منداڵییەوە ئارەزووی تەکنەلۆژیای هەبوو. دوای پۆلی نۆیەم چووە پەیمانگە، بەشی کۆمپیوتەر، و لە بەشی پڕۆگرامینگ دەرچوو؛ لەوێدا یەکەم ئەپڵیکەیشنەکانی مۆبایلی دروست کرد. ئێستا خوێندکاری قۆناغی دووەمی بەشی تەکنەلۆژیای زانیاری (IT) یە لە زانکۆ.</p><p>ئەم کتێبەی نووسیوە تا ڕێگای بەکارهێنانی وریایانەی زیرەکیی دەستکرد بۆ مامۆستا و خوێندکارانی کورد ئاسانتر بکات.</p><p style="margin:10px 0 0">بۆ پەیوەندی، پێشنیار یان ڕاپۆرتکردنی هەڵە:</p><p style="margin:4px 0 0"><a href="https://profile-7324a.web.app/" target="_blank" rel="noopener" dir="ltr">profile-7324a.web.app</a></p></div></div></section>`;
 document.getElementById('root').innerHTML=h;document.getElementById('rail').innerHTML=r;
 document.addEventListener('click',async e=>{
  const b=e.target.closest('.cp');if(!b)return;
